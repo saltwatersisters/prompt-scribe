@@ -1,6 +1,6 @@
 {
   "name": "prompt-scribe",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "A compiler for turning markdown prompts into TypeScript modules.",
   "author": "Jay Steele <jay@saltwatersisters.ca>",
   "license": "MIT",
