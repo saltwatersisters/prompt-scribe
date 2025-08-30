@@ -56,6 +56,17 @@ npm install --save-dev prompt-scribe
 
 Here's a step-by-step example of how to create and use a prompt.
 
+**1. Set up Typescript to allow .md modules to represent strings
+
+
+*File content of `src/prompts.d.ts`:*
+```typescript
+declare module '*.md' {
+  const content: string;
+  export default content;
+}
+```
+
 **1. Create your prompt file**
 
 Create a markdown file inside a `prompts` directory. This is required for the default compiler to find it.
