@@ -1,0 +1,28 @@
+{
+    "name": "prompt-scribe",
+    "version": "0.1.0",
+    "description": "A compiler for turning markdown prompts into TypeScript modules.",
+    "main": "dist/src/compiler.js",
+    "bin": {
+        "prompt-scribe": "dist/bin/index.js"
+    },
+    "scripts": {
+        "build": "tsc",
+        "prepublishOnly": "npm run build",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+        "chokidar": "^3.5.3",
+        "commander": "^11.1.0",
+        "fs-extra": "^11.1.1",
+        "glob": "^10.3.10"
+    },
+    "devDependencies": {
+        "@types/fs-extra": "^11.0.4",
+        "@types/node": "^20.11.24",
+        "typescript": "^5.3.3"
+    },
+    "engines": {
+        "node": ">=18"
+    }
+}
