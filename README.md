@@ -25,9 +25,9 @@ npm install --save-dev prompt-scribe
 `prompt-scribe` is designed to work out-of-the-box with sensible defaults. You can add it to the `scripts` section of your `package.json`.
 
 ```json
-\"scripts\": {
-  \"prompts:compile\": \"prompt-scribe\",
-  \"prompts:watch\": \"prompt-scribe --watch\"
+\\\"scripts\\\": {
+  \\\"prompts:compile\\\": \\\"prompt-scribe\\\",
+  \\\"prompts:watch\\\": \\\"prompt-scribe --watch\\\"
 }
 ```
 
@@ -102,8 +102,8 @@ class SomeSample {
 If your prompts are not located in `prompts/` directories, you can pass a custom glob pattern as an argument:
 
 ```json
-\"scripts\": {
-  \"prompt:compile-custom\": \"prompt-scribe 'src/agents/**/*.md'\"
+\\\"scripts\\\": {
+  \\\"prompt:compile-custom\\\": \\\"prompt-scribe 'src/agents/**/*.md'\\\"
 }
 ```
 
