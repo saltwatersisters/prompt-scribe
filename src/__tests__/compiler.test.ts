@@ -7,6 +7,11 @@ const TEST_DIR = path.join(__dirname, 'test-assets');
 const DUMMY_PROMPT_CONTENT = 'You are a helpful assistant.';
 
 describe('prompt-scribe compiler', () => {
+    // Helper to generate the expected output path based on the new naming convention
+    const getExpectedTsPath = (mdPath: string): string => {
+        return mdPath.replace(/\.md$/, '_md.ts');
+    };
+
     // Before each test, create a clean directory
     beforeEach(async () => {
         await fs.ensureDir(TEST_DIR);
@@ -17,7 +22,7 @@ describe('prompt-scribe compiler', () => {
         await fs.remove(TEST_DIR);
     });
 
-    it('should compile a .md file to a .md.ts file in the correct location', async () => {
+    it('should compile a .md file to a _md.ts file in the correct location', async () => {
         // Arrange: Create a dummy markdown file
         const promptsDir = path.join(TEST_DIR, 'prompts');
         await fs.ensureDir(promptsDir);
@@ -28,7 +33,7 @@ describe('prompt-scribe compiler', () => {
         await compile(path.join(TEST_DIR, '**/*.md'));
 
         // Assert: Check that the compiled file exists
-        const tsPath = mdPath + '.ts';
+        const tsPath = getExpectedTsPath(mdPath);
         const tsFileExists = await fs.pathExists(tsPath);
         expect(tsFileExists).toBe(true);
     });
@@ -44,7 +49,7 @@ describe('prompt-scribe compiler', () => {
         await compile(path.join(TEST_DIR, '**/*.md'));
 
         // Assert
-        const tsPath = mdPath + '.ts';
+        const tsPath = getExpectedTsPath(mdPath);
         const tsContent = await fs.readFile(tsPath, 'utf8');
 
         expect(tsContent).toContain(
